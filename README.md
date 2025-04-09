@@ -22,7 +22,10 @@
 objection -d -g com.electrolytej.app explore
 
 > memory list modules
+
 > memory list exports libsigchain.so
+
 > android heap search instances 类名
 > android hooking list activities/services
+
 frida -D d2d9503e -f com.electrolytej.titan --no-pause -l _index.js
