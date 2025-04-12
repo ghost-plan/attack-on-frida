@@ -1,1 +1,0 @@
-console.log("This is a test for the Frida script. It should be able to run without any issues.");

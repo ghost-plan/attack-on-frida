@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "hook"
+version = "1.0.0"
+description = "hook"
+authors = ["electrolyteJ <electrolytej@gmail.com>"]
+license = "Apache2"
+readme = "README.md"
+packages = [{ include = "ak", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.2"
+
