@@ -27,7 +27,17 @@ description = "ttack-on-frida"
 authors = ["electrolyteJ <electrolytej@gmail.com>"]
 license = "Apache2"
 readme = "README.md"
-packages = [{ include = "attack", from = "src" }]
+
+packages = [
+    { include = "attack", from = "src" },
+    { include = "attack", from = "cli" },
+    { include = "attack", from = "scheduler" },
+]
+include = [
+    "src/resources/**/*",
+    "cli/resources/**/*",
+    "scheduler/resources/**/*",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -64,7 +74,7 @@ warn_return_any = true
 [tool.black]
 line-length = 120
 
-#[tool.poetry.scripts]
-#android = 'ma:android'
+[tool.poetry.scripts]
 #cli = 'ma:cli'
+#android = 'ma:android'
 
