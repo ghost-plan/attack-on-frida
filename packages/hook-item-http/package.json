@@ -1,0 +1,15 @@
+{
+  "name": "@attack/hook-item-http",
+  "version": "1.0.0",
+  "description": "hook http item",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jshint": "^2.9.2",
+    "@types/frida-gum": "^16.2.0",
+    "@types/node": "^14.14.10",
+    "frida-compile": "^10.0.0",
+    "@attack/core": "^1.0.0"
+  }
+}

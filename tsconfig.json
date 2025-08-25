@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": ["es2020"],
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "esModuleInterop": true,
+    // "module": "ESNext",  // Add this line
+    // "moduleResolution": "Node",  // Add this line
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "exclude": ["node_modules","apks"],
+  "include": ["**/*.ts"]
+}

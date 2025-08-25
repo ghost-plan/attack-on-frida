@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "npm run build",
     "start-frida": "frida -U Gadget -l _index.js",
-    "watch": "frida-compile src/index.ts -o _index.js -w",
-    "build": "frida-compile src/index.ts -o _index.js -c"
+    "watch": "frida-compile index.js -o _index.js -w",
+    "build": "frida-compile index.js -o _index.js -c"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,8 @@
     "jshint": "^2.9.2",
     "@types/frida-gum": "^16.2.0",
     "@types/node": "^14.14.10",
-    "frida-compile": "^10.0.0"
+    "frida-compile": "^10.0.0",
+    "@attack/core": "^1.0.0",
+    "@attack/hook-item-http": "^1.0.0"
   }
 }
