@@ -1,17 +1,15 @@
-import { hookRegisterNatives } from "./utils/hooker";
-
+import { getFieldValue,setFieldValue } from "./utils/reflect";
+import {js_log, j_v, j_debug, j_info, j_warn, j_error, c_v, c_debug, c_info, c_warn, c_error,} from "./utils/p";
 Java.perform(function () {
-    var Log = Java.use("android.util.Log");
-    Log.v("attack", "I'm in the process!");
-
+    // js_log("attack", "hook pms!");
     var ApplicationPackageManager = Java.use('android.app.ApplicationPackageManager')
     var origin_getPackageInfo = ApplicationPackageManager.getPackageInfo.overload("java.lang.String", "int")
     origin_getPackageInfo.implementation = function (...args) {
-        Log.v("attack", "Inside getPackageInfo");
+        js_log("attack", "Inside getPackageInfo");
         var packageInfo = origin_getPackageInfo.call(this, ...args)
 
         var StringBuilder = Java.use('java.lang.StringBuilder')
-        var sb = StringBuilder.$new("hook getpackageinfo defore:")
+        var sb = StringBuilder.$new("hook getpackageinfo before:")
         sb.append(args[0])
         sb.append('\t')
         sb.append(args[1])
@@ -19,15 +17,13 @@ Java.perform(function () {
         sb.append(getFieldValue(packageInfo, 'firstInstallTime'))
         sb.append('\t')
         sb.append(getFieldValue(packageInfo, 'lastUpdateTime'))
-        Log.v("attack", sb.toString());
-        if ("com.electrolytej.spacecraft.debug" == args[0] && args[1] == 64.0) {
+        js_log("attack", sb.toString());
+        if ("com.ss.android.ugc.aweme" == args[0] && args[1] == 64.0) {
             //'android.content.pm.PackageInfo'
             var Long = Java.use('java.lang.Long')
             setFieldValue(packageInfo, 'firstInstallTime', Long.valueOf(1))
             setFieldValue(packageInfo, 'lastUpdateTime', Long.valueOf(1))
-
         }
-
         var StringBuilder = Java.use('java.lang.StringBuilder')
         var sb1 = StringBuilder.$new("hook getpackageinfo after:")
         sb1.append(args[0])
@@ -37,19 +33,13 @@ Java.perform(function () {
         sb1.append(getFieldValue(packageInfo, 'firstInstallTime'))
         sb1.append('\t')
         sb1.append(getFieldValue(packageInfo, 'lastUpdateTime'))
-        Log.v("attack", sb1.toString());
+        js_log("attack", sb1.toString());
         return packageInfo
-
     };
-    var PackageManagerService = Java.use('com.android.server.pm.PackageManagerService')
-    PackageManagerService.getPackageInfo.overload("java.lang.String", "int", "int").implementation = function (...args) {
-        Log.v("attack", "PackageManagerService getPackageInfo")
-        return this.getPackageInfo(args[0], args[1], args[2])
-    }
-    var IPackageManager = Java.use('android.content.pm.IPackageManager.Stub')
-    IPackageManager.getPackageInfo.overload("java.lang.String", "int", "int").implementation = function (...args) {
-        Log.v("attack", "IPackageManager getPackageInfo")
-        return this.getPackageInfo(args[0], args[1], args[2])
-    }
+//    var IPackageManager = Java.use('android.content.pm.IPackageManager.Stub')
+//    IPackageManager.getPackageInfo.overload("java.lang.String", "int", "int").implementation = function (...args) {
+//        js_log("attack", "IPackageManager getPackageInfo")
+//        return this.getPackageInfo(args[0], args[1], args[2])
+//    }
 
 });

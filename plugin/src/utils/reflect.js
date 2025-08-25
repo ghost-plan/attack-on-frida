@@ -8,7 +8,7 @@
  * Last modified  : 2021-02-07 17:44:51
  */
 
-function getFieldValue(object, fieldName) {
+export function getFieldValue(object, fieldName) {
   var field = object.class.getDeclaredField(fieldName);
   field.setAccessible(true);
   var fieldValue = field.get(object);
@@ -19,7 +19,7 @@ function getFieldValue(object, fieldName) {
   var fieldValueWapper = Java.cast(fieldValue, FieldClazz);
   return fieldValueWapper;
 }
-function setFieldValue(object, fieldName, fieldValue) {
+export function setFieldValue(object, fieldName, fieldValue) {
   var field = object.class.getDeclaredField(fieldName);
   field.setAccessible(true);
   field.set(object, fieldValue);

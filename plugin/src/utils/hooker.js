@@ -33,7 +33,7 @@ function hookRegisterNatives(methodName, onEnter, onLeave) {
                     var className = Java.vm.tryGetEnv().getClassName(args[1]);
                     var methodsPtr = ptr(args[2]);
                     var methodCount = parseInt(args[3]);
-                    console.log("[RegisterNatives] method_count:", methodCount);
+                    console.log("[RegisterNatives] className/method_count:",className, methodCount);
 
                     for (var i = 0; i < methodCount; i++) {
                         var namePtr = Memory.readPointer(methodsPtr.add(i * Process.pointerSize * 3));
