@@ -1,5 +1,5 @@
-import { getFieldValue } from "@attack/core/reflect";
-import { js_log, j_v, j_debug, j_info, j_warn, j_error, c_v, c_debug, c_info, c_warn, c_error, } from "@attack/core/p";
+import { getFieldValue } from "@attack/core";
+import { js_log, j_v, j_debug, j_info, j_warn, j_error, c_v, c_debug, c_info, c_warn, c_error, } from "@attack/core";
 Java.perform(function () {
     // js_log("attack", "hook okhttp!");
     var MyInterceptor = Java.registerClass({

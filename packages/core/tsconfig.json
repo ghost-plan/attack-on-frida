@@ -6,14 +6,8 @@
     "noEmit": true,
     "strict": true,
     "esModuleInterop": true,
-    // "module": "ESNext",  // Add this line
-    // "moduleResolution": "Node",  // Add this line
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
+    "declaration": true
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "**/*js"]
 }

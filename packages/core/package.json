@@ -2,6 +2,10 @@
   "name": "@attack/core",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "index.js",
-  "type": "module"
+  "main": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/frida-gum": "^16.2.0",
+    "frida-compile": "^19.0.5"
+  }
 }
