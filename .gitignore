@@ -5,3 +5,4 @@ _index.js
 .idea/
 apks/
 __pycache__
+build/
