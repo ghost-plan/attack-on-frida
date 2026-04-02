@@ -14,7 +14,7 @@ objection patchapk \
   -c config.json -l index.js\
   && adb install -r -t -d qinbaobao.objection.apk
 
-  objection patchapk --source release-2.0.0.apk -c  config.json -l index.js
+  objection patchapk --source release-2.0.0.apk -c  config.json -l index.js && adb install -r -t -d release-2.0.0.objection.apk
 
 # bug fix
   frida-gadget.so 17.9.1版本不能执行 script 脚本,使用本工程的项目就行
